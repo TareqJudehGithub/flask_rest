@@ -2,34 +2,35 @@
 username/password validation
 """
 
-users_data = [
-  (1, "goldie", "goldielocks"),
-  (2, "peter", "IluvMyCookie"),
-  (3, "elhog", "hundred_tomato")
-]
+def user_pass_validator():
+  users_data = [
+    (1, "goldie", "goldielocks"),
+    (2, "peter", "IluvMyCookie"),
+    (3, "elhog", "hundred_tomato")
+  ]
 
-username_mapping = {user[1]: user for user in users_data }
+  username_mapping = {user[1]: user for user in users_data }
 
-print(username_mapping, end="\n")
+  while True:
+    username_input = input("username: ").lower()
 
+    # Check if user exists
+    if  username_input in username_mapping:
+      password_input = input("password: ")
+      _, username, password = username_mapping[username_input]
 
+      # check user password
+      if  password_input == password:
+        return f"Welcome back, {username}!"
+        break
 
-while True:
-  username_input = input("username: ").lower()
-
-  if  username_input in username_mapping:
-    password_input = input("password: ")
-    _, username, password = username_mapping[username_input]
-
-    if  password_input == password:
-      print(f"Welcome back, {username}!")
-      break
+      else:
+        print("Invalid username or password!")
+        
 
     else:
-      print("Invalid username or password!")
+      print("User does not exist")
       continue
 
-  else:
-    print("User does not exist")
-
-
+if __name__ == '__main__':
+  print(user_pass_validator())
