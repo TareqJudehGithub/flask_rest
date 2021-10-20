@@ -3,6 +3,8 @@ Magic Methods
  - Methods with two __ in Python are called magic methods.
  - It's called magic methods because you don't have to call it manually, Python
    will call it for you.
+ - To call a magic method, we just instantiate an object and call it, without
+   including any methods.
 
   List of magic methods:
     __str__(self)
